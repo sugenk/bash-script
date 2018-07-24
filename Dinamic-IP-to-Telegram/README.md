@@ -5,4 +5,4 @@ kode singkat ini dibuat untuk cek alamat IP public dinamis (berubah tiap waktu) 
 cara penggunaan :
 di cronjob pada os linux kesayangan mu dirumah, misal tiap 5 menit
 
-*/5 * * * * bash ~/chekip.sh > /dev/null 2>&1
+*/5 * * * * bash ~/checkip.sh > /dev/null 2>&1
