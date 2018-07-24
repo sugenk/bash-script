@@ -17,7 +17,7 @@ IPOld=$(<$LogIP)
 IPNew=$(curl -s https://ifconfig.co)
 
 if [ "$IPOld" != "$IPNew" ]; then
-  MSG="Your dinamic IP is changed to $IPNew"
+  MSG="Your dynamic IP Address is changed to $IPNew"
   curl -s -X POST "https://api.telegram.org/bot$Token/sendMessage" -d "chat_id=$ChatID&text=$MSG"
   echo $IPNew > $LogIP
 fi
