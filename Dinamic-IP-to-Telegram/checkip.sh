@@ -13,8 +13,12 @@ if [ ! -w "$LogIP" ] ; then
     exit 1
 fi
 
+CMD=("curl -s ifconfig.co" "curl -s icanhazip.com" "wget -qO- ipecho.net/plain | xargs echo" "wget -qO - icanhazip.com")
+RND=$$$(date +%s)
+CMD=${CMD[$RND % ${#CMD[@]}]}
+
 IPOld=$(<$LogIP)
-IPNew=$(curl -s https://ifconfig.co)
+IPNew=$($CMD)
 
 if [ "$IPOld" != "$IPNew" ]; then
   MSG="Your dynamic IP Address is changed to $IPNew"
